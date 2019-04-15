@@ -6,13 +6,9 @@
   </picker>
   <scroll-view wx:for="{{config}}" scroll-y style="height: 110px; width: 90%; margin:0 auto" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <view style="width: 100%;border-bottom: 1px #F0F0F0 solid;" id="green" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
-      <view style="width: 74%; float: right; margin-top: 16px">
-        <h5 style="font-size: 14px; font-weight: bold; color: '#1E1E1E'">{{item.name}}</h5>
-        <p>
-          <span style="color: 'red'">￥</span>
-          {{item.price}}
-        </p>
-      </view>
+      <div style="display: block; font-size: 15px; ">{{item.name}}</div>
+      <span style="color: red; font-weight: bold">￥</span>
+      <span style="color: red; font-weight: bold">{{item.price}}</span>
     </view>
   </scroll-view>
 </view>

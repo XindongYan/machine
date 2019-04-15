@@ -465,13 +465,19 @@ Page({
         }
       ]
     },
-    product: ''
+    product: '',
+    tap: 'components-image'
   },
 
   change(param) {
     this.setData({
+      tap: 'check-components-image',
       product: this.data.products[param.currentTarget.dataset.id]
-    })
+    });
+  },
+
+  pos(param) {
+    console.log(param);
   },
 
   onLoad: function () {
