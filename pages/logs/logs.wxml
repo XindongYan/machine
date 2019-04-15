@@ -1,0 +1,19 @@
+<!-- logs.wxml -->
+<view class="container log-list">
+  <picker class="pickerBox" bindchange="bindPickerChange" range="{{acces}}" range-key="" value="{{index}}">
+    <span class="log-show-span">当前显示内容：</span>
+    <view class="picker" hover-class="none" hover-stop-propagation="false">{{acces[index]}}</view>
+  </picker>
+  <scroll-view wx:for="{{config}}" scroll-y style="height: 110px; width: 90%; margin:0 auto" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view style="width: 100%;border-bottom: 1px #F0F0F0 solid;" id="green" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
+      <view style="width: 74%; float: right; margin-top: 16px">
+        <h5 style="font-size: 14px; font-weight: bold; color: '#1E1E1E'">{{item.name}}</h5>
+        <p>
+          <span style="color: 'red'">￥</span>
+          {{item.price}}
+        </p>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- text-decoration-line: underline; -->

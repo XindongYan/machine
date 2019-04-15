@@ -1,0 +1,89 @@
+.components-image {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.out {
+  padding: 20px 10px;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.comp {
+  padding: 20px 10px;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/*设置行内块*/
+
+.out .item {
+  width: 100px;
+  height: 80px;
+  background: white;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.comp .item {
+  width: 100%;
+  height: 80px;
+  background: white;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.inner {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sp {
+  font-size: 30rpx;
+}
+
+.content {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.show {
+  border-radius: 8px;
+  overflow: hidden;
+}
+/* style="box-shadow:2px 1px 20px 9px #ccc;" */
+.image {
+  width: 25%;
+  height: 80px;
+  margin-top: 10px;
+  position: absolute;
+  margin-left: 20px;
+}
+
+.components-config {
+  height: 100px;
+  font-size: 27rpx;
+  line-height: 100px;
+  color: #666666;
+}
+
+.span {
+  font-weight: bold;
+  width: 200px;
+  position: relative;
+  float: right;
+  flex-wrap:wrap;
+  display: flex;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+  margin-top: -25px;
+}
+
+h2 {
+  font-weight: bold;
+  margin-left: 10px;
+}

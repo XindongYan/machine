@@ -1,0 +1,8 @@
+<view class="read" hover-class="none" hover-stop-propagation="false">
+  <h1 class="title">{{desc.title}}</h1>
+</view>
+
+<view class="span" hover-class="none" hover-stop-propagation="false">
+  <span class="author">作者：{{desc.source}}</span>
+  <span class="date">日期： {{desc.date}}</span>
+</view>

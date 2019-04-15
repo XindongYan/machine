@@ -1,0 +1,27 @@
+.log-list {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+  width: 100%;
+}
+
+.pickerBox {
+  float: left;
+}
+
+.bc_list {width:100px; height: 100px;}
+
+.log-item {
+  margin: 10rpx;
+}
+.log-show-span {
+  font-size: 26rpx;
+}
+.picker {
+  border: 1px solid #cccccc;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  width: 150rpx;
+}

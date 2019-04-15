@@ -1,0 +1,20 @@
+.read {
+  text-align: center;
+}
+
+.span {
+  text-align: center
+}
+
+.title {
+  font-size: 35rpx;
+}
+
+.author {
+  font-size: 25rpx;
+}
+
+.date {
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
