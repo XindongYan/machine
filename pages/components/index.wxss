@@ -57,6 +57,10 @@
   /* overflow: hidden; */
 }
 
+view, text {
+  word-break: break-all;
+}
+
 .show {
   border-radius: 8px;
   overflow: hidden;

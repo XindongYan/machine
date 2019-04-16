@@ -10,7 +10,7 @@
   </view>
   <!-- 推荐配置 -->
   <view class='comp'>
-    <swiper style="width: 100%; height:1100px" >
+    <swiper style="width: 100%; height:1100px">
       <block wx:for="{{product}}">
         <swiper-item>
           <view class='content'>
@@ -19,9 +19,7 @@
             <h2 wx:if="{{index === 2}}">发烧配置</h2>
             <view wx:for="{{item.item}}" class="components-config">
               <span style="margin-left: 10px">{{item.categoryName}}:</span>
-              <div>
-                <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-              </div>
+              <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
               <view style="width: 60%; float: right;">
                 <p class="span">{{item.name}}</p>
               </view>
@@ -30,23 +28,5 @@
         </swiper-item>
       </block>
     </swiper>
-    <!-- <scroll-view scroll-x scroll-into-view='item2' class="show">
-      <view wx:for="{{product}}" wx:for-index="index" id='item1' class='item'>
-        <view class='content'>
-          <h2 wx:if="{{index === 0}}">标准配置</h2>
-          <h2 wx:if="{{index === 1}}">进阶配置</h2>
-          <h2 wx:if="{{index === 2}}">发烧配置</h2>
-          <view wx:for="{{item.item}}" class="components-config">
-            <span style="margin-left: 10px">{{item.categoryName}}:</span>
-            <div>
-              <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-            </div>
-            <view style="width: 60%; float: right;">
-              <h5 class="span">{{item.name}}</h5>
-            </view>
-          </view>
-        </view>
-      </view>
-    </scroll-view> -->
   </view>
 </view>

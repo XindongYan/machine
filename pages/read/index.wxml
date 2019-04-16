@@ -5,4 +5,9 @@
 <view class="span" hover-class="none" hover-stop-propagation="false">
   <span class="author">作者：{{desc.source}}</span>
   <span class="date">日期： {{desc.date}}</span>
+
+  <rich-text class="text" nodes="{{content['1']}}" space="true" decode="false">
+    
+  </rich-text>
+    
 </view>

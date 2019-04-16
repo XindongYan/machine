@@ -39,10 +39,10 @@ App({
     news: [
       {
         id: '1',
-        title: '从cherry轴聊起 Vortexgear Type Q体验评测',
+        title: '中规中矩的一次U5装机体验',
         date: '2019-04-12 05:34:00',
         pic: 'https://2e.zol-img.com.cn/product/197_640x2000/906/ceRVnUGwNLass.jpg',
-        content: ' Vortexgear，这是一个来自台湾的品牌，起初是在键盘客制化圈发烧友们才会知道的品牌。而在2018年，Vortexgear正式进入大陆市场，其生产的键盘均采用PBT键帽，用料非常厚道。而今天，我们要体验的是Vortexgear出品的Type Q机械键盘，那么我们就来好好体验一下吧！',
+        content: '中规中矩的一次U5装机体验',
         source: 'ZOL在线'
       }, {
         id: '2',
