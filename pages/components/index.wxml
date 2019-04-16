@@ -3,7 +3,7 @@
     <scroll-view scroll-x scroll-into-view='item2'>
       <view wx:for="{{games.data}}" id='item1' class='item'>
         <view class='inner'>
-          <image id="{{index}}" class="components-image" data-id="{{item.id}}" bindtap="change" src="{{item.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+          <image id="{{index}}"  class="{{index == id ? 'check-components-image' : 'components-image'}}" data-id="{{item.id}}" bindtap="change" src="{{item.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
         </view>
       </view>
     </scroll-view>

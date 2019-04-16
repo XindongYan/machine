@@ -466,12 +466,15 @@ Page({
       ]
     },
     product: '',
-    tap: 'components-image'
+    tap: 'components-image',
+    id: 0
   },
 
   change(param) {
+    console.log(param);
     this.setData({
       tap: 'check-components-image',
+      id: param.currentTarget.id,
       product: this.data.products[param.currentTarget.dataset.id]
     });
   },
