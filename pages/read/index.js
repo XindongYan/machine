@@ -17,6 +17,7 @@ Page({
 
     if (app.globalData.news) {
       app.globalData.news.find((e) => {
+        console.log(options)
         if (e.id === options.id) {
           this.setData({
             desc: e

@@ -21,7 +21,7 @@
 .comp {
   padding: 20px 10px;
   width: 100%;
-  white-space: nowrap;
+  white-space: wrap;
   box-sizing: border-box;
 }
 
@@ -76,9 +76,9 @@ text {
 }
 
 .components-config {
-  height: 100px;
+  height: 110px;
   font-size: 27rpx;
-  line-height: 100px;
+  /* line-height: 100px; */
   color: #666666;
 }
 
@@ -88,8 +88,8 @@ text {
   position: relative;
   float: right;
   overflow: hidden;
-  white-space: nowrap;
-  margin-top: -25px;
+  white-space: wrap;
+  margin-top: 10px;
 }
 
 h2 {
