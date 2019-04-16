@@ -21,9 +21,11 @@
               <span style="margin-left: 10px; line-height: 110px">{{item.categoryName}}:</span>
               <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
               <view style="width: 60%; float: right;">
-                <p class="span">{{item.name}}</p>
+                <text class="name">
+                  {{item.name}}
+                </text>
+                  
               </view>
-                
             </view>
           </view>
         </swiper-item>

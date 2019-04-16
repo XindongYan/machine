@@ -96,3 +96,19 @@ h2 {
   font-weight: bold;
   margin-left: 10px;
 }
+
+.name {
+  font-weight: bold;
+  width: 95%;
+  position: relative;
+  float: right;
+  margin-top: -5px;
+  display: -webkit-box;
+  font-size: 28rpx;
+  /* line-height: 40rpx; */
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
