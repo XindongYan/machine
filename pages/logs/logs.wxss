@@ -25,3 +25,8 @@
   text-align: center;
   width: 150rpx;
 }
+
+.text {
+  font-weight: bold;
+  color: red;
+}

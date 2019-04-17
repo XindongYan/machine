@@ -146,12 +146,41 @@ Page({
     },
 
     index: 0,
+    num: 0,
+    goods: [],
+    totalPrice: 0
   },
 
   bindPickerChange(e) {
     this.setData({
       index: e.detail.value,
       config: this.data.conts[e.detail.value]
+    })
+  },
+
+  list(param) {
+    console.log(param);
+    wx.navigateTo({
+      url: `../read/index?goods=${JSON.stringify(param.currentTarget.dataset)}`
+    })
+  },
+
+  add(param) {
+    this.data.goods.push(
+      {
+        name: param.currentTarget.dataset.name,
+        price: param.currentTarget.dataset.price
+      }
+    );
+
+    let price = 0;
+    for (const g of this.data.goods) {
+      price += Number(g.price);
+    }
+
+    this.setData({
+      goods: this.data.goods,
+      totalPrice: price
     })
   },
 

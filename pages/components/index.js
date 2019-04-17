@@ -312,9 +312,9 @@ Page({
               "categoryName": "显示",
             }
           ],
-        }, 
-        
-        {  
+        },
+
+        {
           item: [
             {
               "name": "英特尔（Intel） i7 8700 酷睿六核 盒装CPU处理器",
@@ -387,8 +387,8 @@ Page({
               "categoryName": "显示",
             },
           ],
-        }, 
-        
+        },
+
         {
           item: [
             {
@@ -467,16 +467,34 @@ Page({
     },
     product: '',
     tap: 'components-image',
-    id: 0
+    id: 0,
+    price: {}
   },
 
   change(param) {
     console.log(param);
+    let oprice = [];
+    for (const p in this.data.products[param.currentTarget.dataset.id]) {
+      let dp = this.data.products[param.currentTarget.dataset.id][p];
+      let price = 0;
+      for (const i of dp.item) {
+        price += Number(i.price);
+      };
+      oprice[p] = price;
+    };
     this.setData({
       tap: 'check-components-image',
       id: param.currentTarget.id,
-      product: this.data.products[param.currentTarget.dataset.id]
+      product: this.data.products[param.currentTarget.dataset.id],
+      price: oprice
     });
+  },
+
+  click(param) {
+    console.log(param);
+    wx.navigateTo({
+      url: `../read/index?desc=${JSON.stringify(param.currentTarget.dataset.desc)}`
+    })
   },
 
   pos(param) {
@@ -484,8 +502,19 @@ Page({
   },
 
   onLoad: function () {
+    let oprice = [];
+    for (const p in this.data.products['1']) {
+      let dp = this.data.products['1'][p];
+      let price = 0;
+      for (const i of dp.item) {
+        price += Number(i.price);
+      };
+      oprice[p] = price;
+    };
+
     this.setData({
-      product: this.data.products['1']
+      product: this.data.products['1'],
+      price: oprice
     });
   }
 })

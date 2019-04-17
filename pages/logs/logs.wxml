@@ -5,11 +5,24 @@
     <view class="picker" hover-class="none" hover-stop-propagation="false">{{acces[index]}}</view>
   </picker>
   <scroll-view wx:for="{{config}}" scroll-y style="height: 110px; width: 90%; margin:0 auto" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view style="width: 100%;border-bottom: 1px #F0F0F0 solid;" id="green" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
-      <div style="display: block; font-size: 15px; ">{{item.name}}</div>
-      <span style="color: red; font-weight: bold">￥</span>
-      <span style="color: red; font-weight: bold">{{item.price}}</span>
+    <view style="width: 100%;border-bottom: 1px #F0F0F0 solid" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
+      <view style="display: block; font-size: 15px; padding-top: 30px">
+        {{item.name}}
+        <view style="float: right; font-size: 30rpx;background-color: #FF0000; width: 90px; height: 30px; border-radius: 8px; text-align: center; line-height: 30px" selectable="false" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="add" space="false" decode="false">
+          <text style="color: #fff">添加配置单</text>
+        </view>
+        <view class="" hover-class="none" hover-stop-propagation="false">
+          <text class="text" selectable="false" space="false" decode="false">￥{{item.price}}</text>
+        </view>
+        <!-- <view class="" hover-class="none" hover-stop-propagation="false"></view> -->
+      </view>
     </view>
   </scroll-view>
+  <view style="position: fixed; bottom: 5px; width: 80%; height: 50px; line-height: 50px; border-radius: 8px; box-shadow:3px 3px 40px 10px #FF0000; background-color: #FF0000" hover-class="none" data-goods="{{goods}}" bindtap="list" hover-stop-propagation="false">
+    <text style="color: #fff; margin-left: 50px; font-weight: bold; font-size: 40rpx">￥{{totalPrice}}</text>
+    <!-- <scroll-view class="" scroll-x="false" scroll-y="true">
+      
+    </scroll-view> -->
+  </view>
 </view>
 <!-- text-decoration-line: underline; -->

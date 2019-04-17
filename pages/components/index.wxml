@@ -10,22 +10,26 @@
   </view>
   <!-- 推荐配置 -->
   <view class='comp'>
-    <swiper style="width: 100%; height:1100px">
+    <swiper style="width: 100%; height:1160px">
       <block wx:for="{{product}}">
         <swiper-item>
           <view class='content'>
             <h2 wx:if="{{index === 0}}">标准配置</h2>
             <h2 wx:if="{{index === 1}}">进阶配置</h2>
             <h2 wx:if="{{index === 2}}">发烧配置</h2>
-            <view wx:for="{{item.item}}" class="components-config">
+            <view wx:for="{{item.item}}" class="components-config" data-desc="{{item}}" bindtap="click">
               <span style="margin-left: 10px; line-height: 110px">{{item.categoryName}}:</span>
               <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
               <view style="width: 60%; float: right;">
-                <text class="name">
-                  {{item.name}}
+                <text class="name">{{item.name}}</text>
+                <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
+                  ￥{{item.price}}
                 </text>
-                  
               </view>
+            </view>
+            <view class='line'>
+              <text style="font-size: 27rpx;">总价：</text>
+              <text class="price" selectable="false" space="false" decode="false">￥{{price[index]}}</text>
             </view>
           </view>
         </swiper-item>

@@ -20,3 +20,7 @@
   font-size: 25rpx;
   margin-left: 20rpx;
 }
+
+.imgBox {
+  width: 70%;
+}
