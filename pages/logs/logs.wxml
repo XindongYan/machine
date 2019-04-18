@@ -8,8 +8,8 @@
     <view style="width: 100%;border-bottom: 1px #F0F0F0 solid" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
       <view style="display: block; font-size: 15px; padding-top: 30px">
         {{item.name}}
-        <view style="float: right; font-size: 30rpx;background-color: #FF0000; width: 90px; height: 30px; border-radius: 8px; text-align: center; line-height: 30px" selectable="false" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="add" space="false" decode="false">
-          <text style="color: #fff">添加配置单</text>
+        <view style="float: right; font-size: 30rpx;background-color: #FF0000; width: 90px; height: 30px; border-radius: 8px; text-align: center; line-height: 30px" selectable="false" data-id="{{index}}" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="add" space="false" decode="false">
+          <text style="color: #fff">{{index !== buttonAdd ? '添加配置单' : '移除配置单'}}</text>
         </view>
         <view class="" hover-class="none" hover-stop-propagation="false">
           <text class="text" selectable="false" space="false" decode="false">￥{{item.price}}</text>

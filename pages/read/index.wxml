@@ -13,16 +13,22 @@
   <view style="text-align: center" hover-class="none" hover-stop-propagation="false">
     <image class="imgBox" src="https://img30.360buyimg.com/diytwo/{{text.imagePath}}" />
   </view>
-  <view style="margin-left: 20px; font-weight: bold; width: 90%" hover-class="none" hover-stop-propagation="false">
-    <text style="color: red; font-size: 40rpx">￥{{text.price}}</text>
-    <text style="font-size: 30rpx;">{{text.name}}</text>
+  <view style="margin-left: 20px; font-weight: bold;" hover-class="none" hover-stop-propagation="false">
+    <text style="color: red; font-size: 40rpx">
+      ￥{{text.price}}
+    </text>
+    <text style="font-size: 30rpx;">
+      {{text.name}}
+    </text>
+
     <text class="" selectable="false" space="false" decode="false">
       {{text.phone}}
       {{text.address}}
     </text>
+      
   </view>
 </view>
-<!-- 选取list -->
+<!-- 选择list -->
 <view style="{{ state === 'goods' ? 'display: block' : 'display: none' }}" hover-class="none" hover-stop-propagation="false">
   <scroll-view wx:for="{{text.goods}}" scroll-y style="height: 40px; width: 90%; margin:0 auto" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <!-- <view style="width: 100%; border-radius:8px;" id="green" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">

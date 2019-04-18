@@ -491,7 +491,6 @@ Page({
   },
 
   click(param) {
-    console.log(param);
     wx.navigateTo({
       url: `../read/index?desc=${JSON.stringify(param.currentTarget.dataset.desc)}`
     })

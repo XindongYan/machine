@@ -148,7 +148,8 @@ Page({
     index: 0,
     num: 0,
     goods: [],
-    totalPrice: 0
+    totalPrice: 0,
+    buttonAdd: -1
   },
 
   bindPickerChange(e) {
@@ -166,6 +167,14 @@ Page({
   },
 
   add(param) {
+    if (this.data.goods.length !== 0) {
+      this.data.goods.find((good) => {
+        if (good.name === param.currentTarget.dataset.name) {
+          throw '重复'
+        }
+      })
+    }
+
     this.data.goods.push(
       {
         name: param.currentTarget.dataset.name,
@@ -176,11 +185,12 @@ Page({
     let price = 0;
     for (const g of this.data.goods) {
       price += Number(g.price);
-    }
+    };
 
     this.setData({
       goods: this.data.goods,
-      totalPrice: price
+      totalPrice: price,
+      buttonAdd: param.currentTarget.dataset.id
     })
   },
 
