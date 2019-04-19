@@ -24,11 +24,13 @@
       <view style="width: 100%; border-radius:8px;" id="green" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
         <image style="width: 20%; height: 68%; line-height: 100px; margin-left: 10px; margin-top: 16px" src="{{item.pic}}" alt="预览图" />
         <view style="width: 74%; float: right; margin-top: 16px">
-          <h5 style="font-size: 14px; font-weight: bold; color: '#1E1E1E'">{{item.title}}</h5>
+          <text style="font-size: 14px; font-weight: bold; color: #1E1E1E;white-space: nowrap; display: inline-block;word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden; text-overflow: ellipsis;">{{item.title}}</text>
+          <text style="position: relative; width: 100%; float: left; font-size: 25rpx; color: #666666">
+            {{item.source}}
+          </text>
         </view>
       </view>
     </scroll-view>
-      
     <!-- <view class="btn-area">
       <button size="mini" bindtap="tap">click me to scroll into view</button>
       <button size="mini" bindtap="tapMove">click me to scroll</button>

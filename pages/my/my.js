@@ -10,6 +10,7 @@ Page({
     hasUserInfo: false,
     modalHidden: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    local: []
   },
 
   onLoad: function () {
@@ -39,6 +40,24 @@ Page({
         }
       })
     };
+
+    try {
+      const value = wx.getStorageSync('like')
+      this.data.local.push(value[0])
+      if (value) {
+        console.log(value);
+        this.setData({
+          local: this.data.local
+        })
+        // Do something with return value
+      }
+    } catch (e) {
+      wx.showToast({
+        title: '读取错误',
+        icon: 'error',
+        duration: 1000
+      })
+    }
 
     if (app.globalData.news) {
       this.setData({

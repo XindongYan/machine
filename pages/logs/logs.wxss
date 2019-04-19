@@ -10,7 +10,44 @@
   float: left;
 }
 
-.bc_list {width:100px; height: 100px;}
+.goods {
+  /* text-align: center; */
+  width: 200px;
+  font-weight: bold;
+  position: absolute;
+  display: inline-block;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.name {
+  position: relative;
+  white-space: wrap;
+  width: 60px;
+  font-size: 34rpx;
+  display: inline-block;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bc_list {
+  width: 100px;
+  height: 100px;
+}
+
+.components-config {
+  height: 80px;
+  font-size: 30rpx;
+  /* line-height: 100px; */
+  color: #666666;
+}
 
 .log-item {
   margin: 10rpx;
@@ -29,4 +66,11 @@
 .text {
   font-weight: bold;
   color: red;
+}
+
+.line {
+  margin: 0 auto;
+  width: 100%;
+  height: 1px;
+  background-color: #cccccc;
 }

@@ -5,7 +5,7 @@
   <view class="span" hover-class="none" hover-stop-propagation="false">
     <span class="author">作者：{{desc.source}}</span>
     <span class="date">日期： {{desc.date}}</span>
-    <rich-text class="text" nodes="{{text}}" space="true" decode="false"></rich-text>
+    <rich-text nodes="{{text}}" space="false" decode="false"></rich-text>
   </view>
 </view>
 <!-- 配件详情 -->
@@ -20,10 +20,12 @@
     <text style="font-size: 30rpx;">
       {{text.name}}
     </text>
-
     <text class="" selectable="false" space="false" decode="false">
       {{text.phone}}
       {{text.address}}
+    </text>
+    <text style="color: #ccc">
+      数据来自京东
     </text>
       
   </view>
@@ -41,4 +43,17 @@
       {{item.name}}
     </view>
   </scroll-view>
+</view>
+<!-- 选择产品 -->
+<view style="{{ state === 'select' ? 'display: block' : 'display: none' }}" hover-class="none" hover-stop-propagation="false">
+  <view wx:for="{{text}}" class="components-config" data-desc="{{item}}" bindtap="click">
+    <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+    <view style="width: 60%; float: right; margin-top: 20px">
+      <text class="name">{{item.name}}</text>
+      <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
+        ￥{{item.price}}
+      </text>
+    </view>
+    <view style="position: absolute; width: 90%; margin-top: 35px; float: right" data-msg="{{item}}" bindtap="selectGood"><p class="font-add">添加</p></view>
+  </view>
 </view>

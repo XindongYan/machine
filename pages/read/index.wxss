@@ -10,6 +10,7 @@
 
 .title {
   font-size: 35rpx;
+  font-weight: bold
 }
 
 .author {
@@ -23,4 +24,40 @@
 
 .imgBox {
   width: 70%;
+}
+
+.maincontent {
+  font-size: 15px;
+  line-height: 32px;
+}
+.maincontent img {
+  border: 0;
+  max-width: 100%;
+}
+
+.components-config {
+  height: 110px;
+  font-size: 27rpx;
+  /* line-height: 100px; */
+  color: #666666;
+}
+
+.image {
+  width: 25%;
+  height: 80px;
+  margin-top: 10px;
+  position: absolute;
+  margin-left: 20px;
+}
+
+.font-add {
+  float: right;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  background-color: #fdce04;
+  color: #ffffff;
+  border-radius: 8px;
+  line-height: 30px;
+  text-align: center;
 }

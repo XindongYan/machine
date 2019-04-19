@@ -22,7 +22,7 @@ Page({
     interval: 5000,
     duration: 1000,
     toView: 'red',
-    scrollTop: 100
+    scrollTop: 100,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -43,7 +43,7 @@ Page({
   to(param) {
     let id = param.currentTarget.dataset.id;  // 文章id
     wx.navigateTo({
-      url: `../read/index?id=${id}`
+      url: `../read/index?text=${id}`
     })
   },
   tap(e) {

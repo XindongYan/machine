@@ -1,10 +1,24 @@
 <!-- index.wxml -->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+  </view>
+  <view style="width: 90%">
+    <text style="font-weight: bold; float: left">我的心愿单</text>
+    <view wx:for="{{local}}" class="components-config" data-desc="{{item}}" bindtap="click">
+      <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+      <view style="width: 60%; float: right;">
+        <text class="name">{{item.name}}</text>
+        <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
+          ￥{{item.price}}
+        </text>
+      </view>
+    </view>
   </view>
 </view>
