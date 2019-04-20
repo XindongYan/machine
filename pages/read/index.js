@@ -106,7 +106,7 @@ Page({
       <p><img style="max-width:100%;height:auto" src="http://upload.cfan.com.cn/2017/0103/1483428649281.png" border="0" alt="201613cytj6"></p>
       <p>图6 UWP之家</p>　</div>`,
 
-      '4': `<img style="max-width:100%;height:auto" src="../../images/0001.jpg" />`
+      '4': `<img style="max-width:100%;height:auto" src="https://i.ibb.co/KGrcZxS/0001.jpg" />`
     },
 
     text: '',
@@ -120,22 +120,26 @@ Page({
   add_collect(param) {
     if (this.data.addCollect) {
       let value = wx.getStorageSync('collect');
-      let list;
-      list = value.find((e) => {
-        if (e.id === param.currentTarget.dataset.desc.id) {
-          return e.id;
-        }
-      });
-
-      if (list) {
-        value.find((e, index) => {
-          if (e.id == list.id) {
-            value[index] = param.currentTarget.dataset.desc
+      if (value) {
+        let list = void 0;
+        list = value.find((e) => {
+          if (e.id === param.currentTarget.dataset.desc.id) {
+            return e.id;
           }
-        })
+        });
+
+        if (list) {
+          value.find((e, index) => {
+            if (e.id == list.id) {
+              value[index] = param.currentTarget.dataset.desc
+            }
+          })
+        } else {
+          value.push(param.currentTarget.dataset.desc);
+        };
       } else {
-        value.push(param.currentTarget.dataset.desc);
-      };
+        value = [param.currentTarget.dataset.desc]
+      }
 
       try {
         wx.setStorageSync('collect', value);
@@ -190,8 +194,12 @@ Page({
   add_like(param) {
     if (this.data.addLike) {
       try {
-        const value = wx.getStorageSync('like');
-        value.push(param.currentTarget.dataset.desc);
+        let value = wx.getStorageSync('like');
+        if (value) {
+          value.push(param.currentTarget.dataset.desc);
+        } else {
+          value = [param.currentTarget.dataset.desc];
+        }
         wx.setStorageSync('like', value);
         this.setData({
           addLike: false
@@ -291,21 +299,27 @@ Page({
       try {
         const likeValue = wx.getStorageSync('like');
         const collectValue = wx.getStorageSync('collect');
-        likeValue.find((e) => {
-          if (e.name === select.name) {
-            this.setData({
-              addLike: false
-            })
-          }
-        });
-        collectValue.find((e) => {
-          if (e.name === select.name) {
-            this.setData({
-              addCollect: false
-            })
-          }
-        });
+        if (likeValue) {
+          likeValue.find((e) => {
+            if (e.name === select.name) {
+              this.setData({
+                addLike: false
+              })
+            }
+          });
+        };
+
+        if (collectValue) {
+          collectValue.find((e) => {
+            if (e.name === select.name) {
+              this.setData({
+                addCollect: false
+              })
+            }
+          });
+        };
       } catch (e) {
+        console.log('309', e);
         wx.showToast({
           title: '读取错误',
           icon: 'error',
