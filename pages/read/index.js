@@ -105,6 +105,8 @@ Page({
       <p>推荐理由：UWP应用分类齐全，更方便新手查找和下载各类UWP应用，而且还有各类UWP应用的评测，方便大家在下载之前查看（图6）。</p>
       <p><img style="max-width:100%;height:auto" src="http://upload.cfan.com.cn/2017/0103/1483428649281.png" border="0" alt="201613cytj6"></p>
       <p>图6 UWP之家</p>　</div>`,
+
+      '4': `<img style="max-width:100%;height:auto" src="../../images/0001.jpg" />`
     },
 
     text: '',
@@ -117,9 +119,23 @@ Page({
 
   add_collect(param) {
     if (this.data.addCollect) {
-      const value = wx.getStorageSync('collect');
-      console.log(value)
-      value.push(param.currentTarget.dataset.desc);
+      let value = wx.getStorageSync('collect');
+      let list;
+      list = value.find((e) => {
+        if (e.id === param.currentTarget.dataset.desc.id) {
+          return e.id;
+        }
+      });
+
+      if (list) {
+        value.find((e, index) => {
+          if (e.id == list.id) {
+            value[index] = param.currentTarget.dataset.desc
+          }
+        })
+      } else {
+        value.push(param.currentTarget.dataset.desc);
+      };
 
       try {
         wx.setStorageSync('collect', value);
@@ -140,7 +156,7 @@ Page({
       }
     } else {
       try {
-        const value = wx.getStorageSync('collect');
+        let value = wx.getStorageSync('collect');
         value.find((e, index) => {
           if (e.name === param.currentTarget.dataset.desc.name) {
             value.splice(index, 1);

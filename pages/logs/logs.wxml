@@ -22,24 +22,3 @@
     </block>
   </view>
 </view>
-<!-- <view style="position: fixed; bottom: 5px; width: 80%; height: 50px; line-height: 50px; border-radius: 8px; box-shadow:3px 3px 40px 10px #FF0000; background-color: #FF0000" hover-class="none" data-goods="{{goods}}" bindtap="list" hover-stop-propagation="false">
-  <text style="color: #fff; margin-left: 50px; font-weight: bold; font-size: 40rpx">
-    ￥{{totalPrice}}
-  </text>
-</view> -->
-<!-- <text style="width: 30px; margin-left: 30px; position: relative;white-space: wrap; border: 1px solid red; display: inline-block; -webkit-box-orient: vertical;  word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;text-overflow: ellipsis;" selectable="false" space="false" decode="false">
-  dshfjsd
-</text><view wx:for="{{template}}" style="margin-top: 50px" hover-class="none" hover-stop-propagation="false">
-  <view class="components-config">
-    <view style="width: 80%; margin-left: 20px; line-height: 80px" data-id="{{index}}" bindtap="select">
-      <text class="name">{{item.name}}:</text>
-      <text wx:if="{{item.id === ''+index && selectGoods[index]}}" class="goods">{{selectGoods[index].name}}</text>
-      <text wx:if="{{item.id === ''+index && selectGoods[index]}}" style="color: red; float: right; font-weight: bold">￥{{selectGoods[index].price}}</text>
-      <text wx:if="{{!selectGoods[index]}}" class="goods">{{text}}</text>
-    </view>
-    <view class="line"></view>
-  </view>
-</view>
-<button type="primary" size="default" style="width: 90%" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" data-template="{{selectGoods}}" bindtap="save">
-  保存配置数据
-</button> -->

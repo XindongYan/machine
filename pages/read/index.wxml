@@ -46,8 +46,97 @@
     <text style="color: red; font-size: 40rpx; display: block">￥{{text.price}}</text>
     <text style="font-size: 30rpx; display: block; margin-top: 20px">{{text.name}}</text>
   </view>
+  <view style="{{text.frequency ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">插槽类型：{{text.slot}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">CPU主频：{{text.frequency}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">动态加速频率：{{text.frequency1}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">三级缓存：{{text.threeCache}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">核心数量：{{text.inside}}</text>
+  </view>
+  <view style="{{text.motherboard ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">芯片组：{{text.chipset}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">插槽类型：{{text.slot}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">板型：{{text.motherboard}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">集成芯片：{{text.integratedChip}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">内存类型：{{text.ramType}}</text>
+  </view>
+  <view style="{{text.ramfrequency ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">内存容量：{{text.capacity}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">内存描述：{{text.desc}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">内存类型：{{text.type}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">内存主频：{{text.ramfrequency}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">工作电压：{{text.voltage}}</text>
+  </view>
+  <view style="{{text.hardDriveCapacity ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">硬盘容量：{{text.hardDriveCapacity}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">接口类型：{{text.interfaceType}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">转速：{{text.rotatingSpeed}}
+    </text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">缓存：{{text.cache}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">硬盘尺寸：{{text.size}}</text>
+  </view>
+  <view style="{{text.ramCapacity ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">存储容量：{{text.ramCapacity}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">接口类型：{{text.ramInterfaceType}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">读取速度：{{text.readSpeed}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">缓存：{{text.cache}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">硬盘尺寸：{{text.ramSize}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">I/O接口：{{text.ramSize}}</text>
+  </view>
+  <view style="{{text.gpuChip ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">芯片厂商：{{text.vendor}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">显卡芯片：{{text.gpuChip}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">显存容量：{{text.capacity}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">现存位宽：{{text.bit}}</text>
+  </view>
+  <view style="{{text.displayType ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">屏幕尺寸：{{text.size}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">产品类型：{{text.type}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">面板类型：{{text.displayType}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">最佳分辨率：{{text.resolution}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">背光类型：{{text.backlight}}</text>
+  </view>
+  <view style="{{text.boxtype ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">机箱类型：{{text.boxtype}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">机箱结构：{{text.boxStructure}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">理线功能：{{text.features}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">仓位：{{text.size}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">材质：{{text.material}}</text>
+  </view>
+  <view style="{{text.PFC ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">额定功率：{{text.power}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">PFC类型：{{text.PFC}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">电源类型：{{text.type}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">80PLUS认证：{{text.puls}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">适用范围：{{text.applicable}}</text>
+  </view>
+  <view style="{{text.airVolume ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">散热器类型：{{text.heatType}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">散热方式：{{text.heatMethod}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">适用范围：{{text.applicable}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">最大风量：{{text.airVolume}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">转数描述：{{text.desc}}</text>
+  </view>
+  <view style="{{text.mouseInterface ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">适用类型：{{text.applicable}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">连接方式：{{text.connectionMethod}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">鼠标接口：{{text.mouseInterface}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">工作方式：{{text.work}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">鼠标大小：{{text.size}}</text>
+  </view>
+  <view style="{{text.kbInterface ? 'display: block; margin-left: 20px; color: #666;' : 'display: none'}}">
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">产品定位：{{text.position}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">连接方式：{{text.connectionMethod}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">键盘接口：{{text.kbInterface}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">按键技术：{{text.button}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">背光：{{text.backlight}}</text>
+  </view>
   <scroll-view class="sv" scroll-x="false" scroll-y="true">
-    <view class="add_collect" data-desc="{{text}}" bindtap="add_collect">{{addCollect ? '添加到攒机' : '取消攒机'}}</view>
-    <view class="add_like" data-desc="{{text}}" bindtap="add_like">{{addLike ? '添加到心愿单' : '取消心愿'}}</view>
+    <view class="add_collect" data-desc="{{text}}" bindtap="add_collect">
+      {{addCollect ? '添加到攒机' : '取消攒机'}}
+    </view>
+    <view class="add_like" data-desc="{{text}}" bindtap="add_like">
+      {{addLike ? '添加到心愿单' : '取消心愿'}}
+    </view>
   </scroll-view>
 </view>

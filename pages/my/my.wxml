@@ -12,20 +12,23 @@
   <text style="font-weight: bold; float: left; width: 90%; margin-top: 10px">我的心愿单</text>
   <view style="width: 90%; margin: 20px">
     <scroll-view wx:for="{{local}}" class="" style="height: 110px; margin-top: 10px; " scroll-x="false" scroll-y="true">
-      <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-      <view class="" hover-class="none" hover-stop-propagation="false" style="float: right; width: 65%;">
+      <view style="width: 100%;" hover-class="none" hover-stop-propagation="false">
+        <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+        <view hover-class="none" hover-stop-propagation="false" style="margin-left: 120px; position: absolute; width: 50%;">
+          <text class="name">{{item.name}}</text>
+          <text style="font-weight: bold; color: red">￥{{item.price}}</text>
+        </view>
+        <view style="position: absolute; width: 100%;" data-desc="{{item}}" bindtap="remove">
+          <text style="float: right; background-color: #FEBD00; color: #fff; font-size: 35rpx; width: 45px; text-align: center">移除</text>
+        </view>
+      </view>
+      <!-- <view class="" hover-class="none" hover-stop-propagation="false" style="float: right; width: 65%;">
         <text class="name">{{item.name}}</text>
         <text style="font-weight: bold; color: red">￥{{item.price}}</text>
       </view>
+      <view style="position: absolute; width: 100%;">
+        <text style="float: right; background-color: #FEBD00; color: #fff;">移除</text>
+      </view> -->
     </scroll-view>
-    <!-- <view wx:for="{{local}}" class="components-config" data-desc="{{item}}" bindtap="click">
-      <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-      <view style="width: 60%; float: right;">
-        <text class="name">{{item.name}}</text>
-        <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
-          ￥{{item.price}}
-        </text>
-      </view>
-    </view> -->
   </view>
 </view>

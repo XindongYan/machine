@@ -13,6 +13,37 @@ Page({
     local: []
   },
 
+  remove(param) {
+    try {
+      const value = wx.getStorageSync('like');
+      value.find((e, index) => {
+        if (e.name === param.currentTarget.dataset.desc.name) {
+          value.splice(index, 1);
+          try {
+            wx.setStorageSync('like', value);
+            wx.showToast({
+              title: '删除成功',
+              icon: 'success',
+              duration: 1000
+            });
+            this.setData({
+              local: value
+            })
+          } catch (error) {
+            throw error
+          }
+        }
+      });
+
+    } catch (error) {
+      wx.showToast({
+        title: '',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+  },
+
   onShow() {
     try {
       const value = wx.getStorageSync('like')

@@ -9,6 +9,7 @@
     <view class="line"></view>
   </view>
 </view>
-<button type="primary" size="default" style="width: 90%" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" data-template="{{selectGoods}}" bindtap="save">
-  保存配置数据
-</button>
+<text style="display: block; font-weight: bold; margin-top: 20px; margin-left: 20px;" selectable="false" space="false" decode="false">
+  共计：￥{{totalPrice}}
+</text>
+  

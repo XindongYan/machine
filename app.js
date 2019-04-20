@@ -55,6 +55,11 @@ App({
         date: '2019-04-21 15:12:01',
         pic: 'http://upload.cfan.com.cn/2017/0103/1483428648439.png',
         source: 'ZOL-中关村在线'
+      }, {
+        id: '4',
+        title: '芯片售后信息',
+        date: '2019-4-20 21:49:51',
+        pic: 'https://www.intel.com/etc/designs/intel/us/en/images/printlogo.png',
       }
     ],
   }
