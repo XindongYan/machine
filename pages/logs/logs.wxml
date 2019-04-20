@@ -1,44 +1,45 @@
-<!-- <view class="container log-list">
-  <picker class="pickerBox" bindchange="bindPickerChange" range="{{acces}}" range-key="" value="{{index}}">
-    <span class="log-show-span">当前显示内容：</span>
-    <view class="picker" hover-class="none" hover-stop-propagation="false">{{acces[index]}}</view>
-  </picker>
-  <scroll-view wx:for="{{config}}" scroll-y style="height: 110px; width: 90%; margin:0 auto" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-    <view style="width: 100%;border-bottom: 1px #F0F0F0 solid" class="scroll-view-item bc_list" data-id="{{item.id}}" bindtap="to">
-      <view style="display: block; font-size: 15px; padding-top: 30px">
+<view class="content">
+  <!-- 左侧栏 -->
+  <view class="nav_left">
+    <block wx:for="{{template}}">
+      <view class="{{index === rightIndex ? 'nav_left_items.active' : 'nav_left_items' }}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">
         {{item.name}}
-        <view style="float: right; font-size: 30rpx;background-color: #FF0000; width: 90px; height: 30px; border-radius: 8px; text-align: center; line-height: 30px" selectable="false" data-id="{{index}}" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="add" space="false" decode="false">
-          <text style="color: #fff">{{index !== buttonAdd ? '添加配置单' : '移除配置单'}}</text>
-        </view>
-        <view class="" hover-class="none" hover-stop-propagation="false">
-          <text class="text" selectable="false" space="false" decode="false">￥{{item.price}}</text>
-        </view>
       </view>
-    </view>
-  </scroll-view>
-  <view style="position: fixed; bottom: 5px; width: 80%; height: 50px; line-height: 50px; border-radius: 8px; box-shadow:3px 3px 40px 10px #FF0000; background-color: #FF0000" hover-class="none" data-goods="{{goods}}" bindtap="list" hover-stop-propagation="false">
-    <text style="color: #fff; margin-left: 50px; font-weight: bold; font-size: 40rpx">￥{{totalPrice}}</text>
+    </block>
   </view>
+  <!-- 右侧栏 -->
+  <view class="nav_right">
+    <block wx:for="{{goods}}">
+      <scroll-view class="nav_right_items" scroll-x="false" scroll-y="true" data-id="{{index}}" data-desc="{{item}}" bindtap="goodDetail">
+        <block>
+          <image class="nav_right_items_image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+          <view class="nav_right_items_msg">
+            <text class="nav_right_items_name">{{item.name}}</text>
+            <text class="nav_right_items_price">￥{{item.price}}</text>
+          </view>
+        </block>
+      </scroll-view>
+    </block>
+  </view>
+</view>
+<!-- <view style="position: fixed; bottom: 5px; width: 80%; height: 50px; line-height: 50px; border-radius: 8px; box-shadow:3px 3px 40px 10px #FF0000; background-color: #FF0000" hover-class="none" data-goods="{{goods}}" bindtap="list" hover-stop-propagation="false">
+  <text style="color: #fff; margin-left: 50px; font-weight: bold; font-size: 40rpx">
+    ￥{{totalPrice}}
+  </text>
 </view> -->
 <!-- <text style="width: 30px; margin-left: 30px; position: relative;white-space: wrap; border: 1px solid red; display: inline-block; -webkit-box-orient: vertical;  word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;text-overflow: ellipsis;" selectable="false" space="false" decode="false">
   dshfjsd
-</text> -->
-<view wx:for="{{template}}" style="margin-top: 50px" hover-class="none" hover-stop-propagation="false">
+</text><view wx:for="{{template}}" style="margin-top: 50px" hover-class="none" hover-stop-propagation="false">
   <view class="components-config">
-    <!-- <span style="margin-left: 10px; line-height: 110px">{{item.categoryName}}:</span> -->
-    <!-- <image class="image" src="https://img30.360buyimg.com/diytwo/{{item.imagePath}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" /> -->
     <view style="width: 80%; margin-left: 20px; line-height: 80px" data-id="{{index}}" bindtap="select">
       <text class="name">{{item.name}}:</text>
       <text wx:if="{{item.id === ''+index && selectGoods[index]}}" class="goods">{{selectGoods[index].name}}</text>
       <text wx:if="{{item.id === ''+index && selectGoods[index]}}" style="color: red; float: right; font-weight: bold">￥{{selectGoods[index].price}}</text>
       <text wx:if="{{!selectGoods[index]}}" class="goods">{{text}}</text>
-      <!-- <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
-        ￥{{item.price}}
-      </text> -->
     </view>
     <view class="line"></view>
   </view>
 </view>
 <button type="primary" size="default" style="width: 90%" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" data-template="{{selectGoods}}" bindtap="save">
   保存配置数据
-</button>
+</button> -->

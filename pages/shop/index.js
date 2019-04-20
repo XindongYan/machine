@@ -1,5 +1,3 @@
-//logs.js
-const util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -365,30 +363,119 @@ Page({
       ],
     },
 
-    rightIndex: 0,
-    goodIndex: 0,
+    index: 0,
     num: 0,
     goods: [],
+    totalPrice: 0,
+    buttonAdd: -1,
+    selectGoods: [],
+    text: '请选择商品'
   },
 
-  switchRightTab(param) {
-    console.log(param);
+  bindPickerChange(e) {
     this.setData({
-      goods: this.data.goods1[param.currentTarget.dataset.id],
-      goodIndex: param.currentTarget.dataset.id
+      index: e.detail.value,
+      config: this.data.conts[e.detail.value]
     })
   },
 
-  goodDetail(param) {
+  list(param) {
     console.log(param);
     wx.navigateTo({
-      url: `../read/index?select=${JSON.stringify(param.currentTarget.dataset.desc)}&id=${this.data.goodIndex}`
+      url: `../read/index?goods=${JSON.stringify(param.currentTarget.dataset)}`
+    })
+  },
+
+  select(param) {
+    console.log(param)
+    let id = param.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../read/index?select=${JSON.stringify(this.data.goods1[id])}&id=${id}`
+    })
+  },
+
+  onShow(param) {
+    try {
+      const value = wx.getStorageSync('collect')
+      if (value) {
+        let data = [];
+        for (const v of value) {
+          data[v.id] = v;
+        }
+        this.setData({
+          selectGoods: data
+        });
+      }
+    } catch (e) {
+      wx.showToast({
+        title: '读取错误',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+  },
+
+  add(param) {
+    if (this.data.goods.length !== 0) {
+      this.data.goods.find((good) => {
+        if (good.name === param.currentTarget.dataset.name) {
+          throw '重复'
+        }
+      })
+    }
+
+    this.data.goods.push(
+      {
+        name: param.currentTarget.dataset.name,
+        price: param.currentTarget.dataset.price
+      }
+    );
+
+    let price = 0;
+    for (const g of this.data.goods) {
+      price += Number(g.price);
+    };
+
+    this.setData({
+      goods: this.data.goods,
+      totalPrice: price,
+      buttonAdd: param.currentTarget.dataset.id
+    })
+  },
+
+  save(param) {
+    console.log(param);
+    let configs = [];
+    for (const dt of param.currentTarget.dataset.template) {
+      if (dt) {
+        configs.push(dt)
+      }
+    }
+    console.log(configs)
+    wx.setStorage({
+      key: 'like',
+      data: configs,
+      success: function(res) {
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        })
+      },
+      fail: function(err) {
+        wx.showToast({
+          title: '保存失败',
+          icon: 'error',
+          duration: 1000
+        })
+      }
     })
   },
 
   onLoad: function () {
+    console.log('onLoad');
     this.setData({
-      goods: this.data.goods1[this.data.goodIndex]
+      // config: this.data.conts[0]
     });
   }
 })

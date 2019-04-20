@@ -14,20 +14,13 @@
     <image class="imgBox" src="https://img30.360buyimg.com/diytwo/{{text.imagePath}}" />
   </view>
   <view style="margin-left: 20px; font-weight: bold;" hover-class="none" hover-stop-propagation="false">
-    <text style="color: red; font-size: 40rpx">
-      ￥{{text.price}}
-    </text>
-    <text style="font-size: 30rpx;">
-      {{text.name}}
-    </text>
+    <text style="color: red; font-size: 40rpx; display: block">￥{{text.price}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">{{text.name}}</text>
     <text class="" selectable="false" space="false" decode="false">
       {{text.phone}}
       {{text.address}}
     </text>
-    <text style="color: #ccc">
-      数据来自京东
-    </text>
-      
+    <text style="color: #ccc">数据来自京东</text>
   </view>
 </view>
 <!-- 选择list -->
@@ -46,14 +39,15 @@
 </view>
 <!-- 选择产品 -->
 <view style="{{ state === 'select' ? 'display: block' : 'display: none' }}" hover-class="none" hover-stop-propagation="false">
-  <view wx:for="{{text}}" class="components-config" data-desc="{{item}}" bindtap="click">
-    <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-    <view style="width: 60%; float: right; margin-top: 20px">
-      <text class="name">{{item.name}}</text>
-      <text style="position: relative; width: 100%; float: left; margin-left: 10px; color: red; font-weight: bold; font-size: 16px;">
-        ￥{{item.price}}
-      </text>
-    </view>
-    <view style="position: absolute; width: 90%; margin-top: 35px; float: right" data-msg="{{item}}" bindtap="selectGood"><p class="font-add">添加</p></view>
+  <view style="text-align: center" hover-class="none" hover-stop-propagation="false">
+    <image style="height: 150px; width: 200px" src="{{text.src}}" />
   </view>
+  <view style="margin-left: 20px; font-weight: bold;" hover-class="none" hover-stop-propagation="false">
+    <text style="color: red; font-size: 40rpx; display: block">￥{{text.price}}</text>
+    <text style="font-size: 30rpx; display: block; margin-top: 20px">{{text.name}}</text>
+  </view>
+  <scroll-view class="sv" scroll-x="false" scroll-y="true">
+    <view class="add_collect" data-desc="{{text}}" bindtap="add_collect">{{addCollect ? '添加到攒机' : '取消攒机'}}</view>
+    <view class="add_like" data-desc="{{text}}" bindtap="add_like">{{addLike ? '添加到心愿单' : '取消心愿'}}</view>
+  </scroll-view>
 </view>

@@ -110,7 +110,122 @@ Page({
     text: '',
     state: 'index',
     goodsIndex: 0,
-    newIndex: 0
+    newIndex: 0,
+    addCollect: true,
+    addLike: true
+  },
+
+  add_collect(param) {
+    if (this.data.addCollect) {
+      const value = wx.getStorageSync('collect');
+      console.log(value)
+      value.push(param.currentTarget.dataset.desc);
+
+      try {
+        wx.setStorageSync('collect', value);
+        this.setData({
+          addCollect: false
+        });
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        });
+      } catch (error) {
+        wx.showToast({
+          title: '保存失败',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    } else {
+      try {
+        const value = wx.getStorageSync('collect');
+        value.find((e, index) => {
+          if (e.name === param.currentTarget.dataset.desc.name) {
+            value.splice(index, 1);
+
+            try {
+              wx.setStorageSync('collect', value);
+              this.setData({
+                addCollect: true
+              });
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+                duration: 1000
+              });
+            } catch (error) {
+              throw error
+            }
+          }
+        });
+
+      } catch (error) {
+        wx.showToast({
+          title: '',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    }
+  },
+
+  add_like(param) {
+    if (this.data.addLike) {
+      try {
+        const value = wx.getStorageSync('like');
+        value.push(param.currentTarget.dataset.desc);
+        wx.setStorageSync('like', value);
+        this.setData({
+          addLike: false
+        });
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        });
+      } catch (e) {
+        wx.showToast({
+          title: '读取错误',
+          icon: 'error',
+          duration: 1000
+        });
+      };
+    } else {
+      try {
+        const value = wx.getStorageSync('like');
+        let par = Object.assign({}, param.currentTarget.dataset.desc);
+        value.find((e, index) => {
+          if (e.name === (par && par.name)) {
+            value.splice(index, 1);
+
+            try {
+              wx.setStorageSync('like', value);
+              this.setData({
+                addLike: true
+              });
+              wx.showToast({
+                title: '取消成功',
+                icon: 'success',
+                duration: 1000
+              });
+            } catch (error) {
+              throw error
+            }
+          }
+        });
+
+      } catch (error) {
+        console.log(error);
+        wx.showToast({
+          title: '',
+          icon: 'error',
+          duration: 1000
+        });
+      };
+    }
+
   },
 
   selectGood(param) {
@@ -121,8 +236,6 @@ Page({
     // goods = [{'0': {}}]
     prevPage.data.selectGoods[this.data.goodsIndex] = param.currentTarget.dataset.msg
 
-    console.log(prevPage.data);
-    console.log(param.currentTarget.dataset.msg);
     prevPage.setData({
       selectGoods: prevPage.data.selectGoods
     });
@@ -158,10 +271,34 @@ Page({
       })
     } else if (options && options.select) {
       console.log(options)
+      let select = JSON.parse(options.select);
+      try {
+        const likeValue = wx.getStorageSync('like');
+        const collectValue = wx.getStorageSync('collect');
+        likeValue.find((e) => {
+          if (e.name === select.name) {
+            this.setData({
+              addLike: false
+            })
+          }
+        });
+        collectValue.find((e) => {
+          if (e.name === select.name) {
+            this.setData({
+              addCollect: false
+            })
+          }
+        });
+      } catch (e) {
+        wx.showToast({
+          title: '读取错误',
+          icon: 'error',
+          duration: 1000
+        });
+      };
       this.setData({
         state: 'select',
-        text: JSON.parse(options.select),
-        goodsIndex: options.id
+        text: Object.assign({}, select, { id: options.id }),
       })
     } else if (app.globalData.news) {
       app.globalData.news.find((e) => {

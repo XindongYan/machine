@@ -4,7 +4,8 @@
     "pages/read/index",
     "pages/logs/logs",
     "pages/components/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/shop/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,10 +31,16 @@
         "text": "配件"
       },
       {
-        "selectedIconPath": "images/computer.png",
-        "iconPath": "images/computer.png",
-        "pagePath": "pages/components/index",
+        "selectedIconPath": "images/shop.png",
+        "iconPath": "images/shop.png",
+        "pagePath": "pages/shop/index",
         "text": "攒机"
+      },
+      {
+        "selectedIconPath": "images/game.png",
+        "iconPath": "images/game.png",
+        "pagePath": "pages/components/index",
+        "text": "游戏"
       },
       {
         "selectedIconPath": "images/My.png",

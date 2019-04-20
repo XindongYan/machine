@@ -1,0 +1,14 @@
+<view wx:for="{{template}}" style="margin-top: 50px" hover-class="none" hover-stop-propagation="false">
+  <view class="components-config">
+   <view style="width: 80%; margin-left: 20px; line-height: 80px" data-id="{{index}}" bindtap="select">
+      <text class="name">{{item.name}}:</text>
+      <text wx:if="{{item.id === ''+index && selectGoods[index]}}" class="goods">{{selectGoods[index].name}}</text>
+      <text wx:if="{{item.id === ''+index && selectGoods[index]}}" style="color: red; float: right; font-weight: bold">￥{{selectGoods[index].price}}</text>
+      <text wx:if="{{!selectGoods[index]}}" class="goods">{{text}}</text>
+    </view>
+    <view class="line"></view>
+  </view>
+</view>
+<button type="primary" size="default" style="width: 90%" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" data-template="{{selectGoods}}" bindtap="save">
+  保存配置数据
+</button>
