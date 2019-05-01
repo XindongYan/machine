@@ -47,7 +47,7 @@
 }
 
 .nav_right_items_image {
-  height: 80px;
+  height: 90px;
   width: 40%;
 }
 

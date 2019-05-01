@@ -12,7 +12,7 @@
     <block wx:for="{{goods}}">
       <scroll-view class="nav_right_items" scroll-x="false" scroll-y="true" data-id="{{index}}" data-desc="{{item}}" bindtap="goodDetail">
         <block>
-          <image class="nav_right_items_image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+          <image class="nav_right_items_image" src="https://www.xiamitt.xyz{{item.img}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
           <view class="nav_right_items_msg">
             <text class="nav_right_items_name">{{item.name}}</text>
             <text class="nav_right_items_price">￥{{item.price}}</text>

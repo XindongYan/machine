@@ -111,10 +111,37 @@ Page({
       })
     };
 
+    var formatTime = function (date) {
+      var date = new Date(date);
+      var year = date.getFullYear()
+      var month = date.getMonth() + 1
+      var day = date.getDate()
+
+      return [year, month, day].join('-')
+    }
+
+    wx.request({
+      url: 'https://www.xiamitt.xyz/api/getText',
+      method: 'GET',
+      data: {
+        type: 1
+      },
+      success: (res) => {
+        console.log(res.data)
+        res.data.result.map(e => {
+          e.updatedAt = formatTime(e.updatedAt)
+        })
+        this.setData({
+          news: res.data.result
+        })
+      }
+    })
+
     if (app.globalData.news) {
-      this.setData({
-        news: app.globalData.news
-      })
+      console.log(app.globalData.news)
+      // this.setData({
+      //   news: app.globalData.news
+      // })
     };
   },
   getUserInfo: function (e) {

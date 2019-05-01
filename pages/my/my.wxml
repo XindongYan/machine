@@ -13,7 +13,7 @@
   <view style="width: 90%; margin: 20px">
     <scroll-view wx:for="{{local}}" class="" style="height: 110px; margin-top: 10px; " scroll-x="false" scroll-y="true">
       <view style="width: 100%;" hover-class="none" hover-stop-propagation="false">
-        <image class="image" src="{{item.src}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+        <image class="image" src="https://www.xiamitt.xyz{{item.img}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
         <view hover-class="none" hover-stop-propagation="false" style="margin-left: 120px; position: absolute; width: 50%;">
           <text class="name">{{item.name}}</text>
           <text style="font-weight: bold; color: red">￥{{item.price}}</text>
